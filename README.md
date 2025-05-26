@@ -162,7 +162,7 @@ pytest --disable-warnings -q
 
 ## 👩‍💻 Authors and Acknowledgments
 
-- Built by [Your Name]  
+- Built by Pedro Alejandro Medellín
 - IE University — MLOps Track  
 - Inspired by the Palmer Penguins dataset from the `seaborn` library
 
