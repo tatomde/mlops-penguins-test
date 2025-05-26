@@ -1,0 +1,11 @@
+data:
+  raw_path: data/raw/penguins_cleaned.csv
+  processed_dir: data/processed/
+
+model:
+  path: models/model.pkl
+  test_size: 0.2
+  random_state: 42
+
+reports:
+  metrics_dir: reports/metrics/
