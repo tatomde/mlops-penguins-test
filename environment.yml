@@ -1,0 +1,15 @@
+name: mlops-penguins-pamed
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas
+  - numpy
+  - scikit-learn
+  - matplotlib
+  - joblib
+  - pyyaml
+  - python-dotenv
+  - pytest
+  - black
+  - flake8

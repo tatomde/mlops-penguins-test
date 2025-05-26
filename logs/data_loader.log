@@ -1,0 +1,12 @@
+2025-05-26 16:16:25,033 - __main__ - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 16:16:25,061 - __main__ - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 16:16:25,069 - __main__ - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 16:16:25,076 - __main__ - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 16:19:37,375 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 16:19:37,392 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 16:19:37,392 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 16:19:37,398 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 16:26:18,256 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 16:26:18,268 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 16:26:18,268 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 16:26:18,268 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
