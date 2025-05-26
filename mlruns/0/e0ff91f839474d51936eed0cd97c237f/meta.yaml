@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/pamed/mlops-penguins/mlops-penguins/mlruns/0/e0ff91f839474d51936eed0cd97c237f/artifacts
+end_time: 1748277809447
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e0ff91f839474d51936eed0cd97c237f
+run_name: tasteful-cod-326
+run_uuid: e0ff91f839474d51936eed0cd97c237f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748277800838
+status: 3
+tags: []
+user_id: pamed

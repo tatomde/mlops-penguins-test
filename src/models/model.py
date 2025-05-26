@@ -5,6 +5,9 @@ import joblib
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+import mlflow
+import mlflow.sklearn
+
 
 from src.data.data_loader import load_data
 from src.features.features import engineer_features
@@ -43,8 +46,16 @@ def train_and_save_model(
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
 
     # 5. Model
-    model = RandomForestClassifier(random_state=42)
-    model.fit(X_train, y_train)
+    with mlflow.start_run():
+        model = RandomForestClassifier(random_state=42)
+        model.fit(X_train, y_train)
+
+        y_pred = model.predict(X_val)
+        acc = accuracy_score(y_val, y_pred)
+
+        mlflow.log_param("model_type", "RandomForestClassifier")
+        mlflow.log_metric("accuracy", acc)
+        mlflow.sklearn.log_model(model, "model")
 
     # 6. Evaluate
     y_pred = model.predict(X_val)

@@ -4,7 +4,7 @@ This repository contains a modular, production-grade MLOps pipeline for classify
 
 ---
 
-## 🚦 Project Status
+## Project Phases:
 
 **Phase 1: Complete and Tested**
 - End-to-end modular pipeline: data loading, validation, preprocessing, feature engineering, model training, evaluation
@@ -25,10 +25,12 @@ This repository contains a modular, production-grade MLOps pipeline for classify
 ├── .env.template                # Placeholder for environment variables (if needed)
 ├── data/
 │   ├── raw/                     # Original input data
-│   └── processed/              # Sample CSVs, transformed files
+│   └── processed/              # Sample CSVs, inference results, transformed files
 ├── models/                      # Trained model saved with joblib
 ├── reports/
 │   └── metrics/                 # classification_report.json + confusion_matrix.png
+├── scripts/
+│   └── run_inference.py        # CLI example to run batch inference on raw data
 ├── src/
 │   ├── data/                    # Data loading + EDA
 │   ├── validation/              # Schema and integrity checks
@@ -36,13 +38,14 @@ This repository contains a modular, production-grade MLOps pipeline for classify
 │   ├── preprocessing/           # Scaling + encoding pipeline
 │   ├── models/                  # Model training and saving logic
 │   ├── evaluation/              # Evaluation metrics and plots
-│   └── main.py                  # CLI entry point for training/eval
+│   ├── inference/              # Model inference logic
+│   └── main.py                  # CLI entry point for train/eval (and soon infer)
 ├── tests/                       # Full test coverage for every module
 ```
 
 ---
 
-## 🔬 Problem Description
+## Problem Description
 
 The pipeline predicts the **species** of a penguin given attributes such as:
 - bill length and depth
@@ -54,10 +57,10 @@ This is a **multiclass classification** task based on the popular Palmer Penguin
 
 ---
 
-## 🛠️ Pipeline Modules
+## Pipeline Modules
 
 ### 0. Orchestration (`src/main.py`)
-- Single entry point with `--mode train` and `--mode eval`
+- Single entry point with `--mode train`, `--mode eval`, and `--mode infer`
 - Controls flow of the entire pipeline via config and logging
 - Supports reproducibility and experimentation
 
@@ -86,6 +89,7 @@ This is a **multiclass classification** task based on the popular Palmer Penguin
 - Trains a `RandomForestClassifier`
 - Automatically splits into train/val sets
 - Saves `.pkl` file to `models/` and logs accuracy
+- Tracks model and metrics using MLflow
 
 ### 6. Evaluation (`src/evaluation/evaluation.py`)
 - Generates predictions on a holdout set
@@ -93,7 +97,13 @@ This is a **multiclass classification** task based on the popular Palmer Penguin
   - `classification_report.json` with precision, recall, f1
   - `confusion_matrix.png` for visual interpretation
 
-### 7. Testing (`tests/`)
+### 7. Inference (`src/inference/inference.py`)
+- Accepts new data (as a DataFrame)
+- Applies feature engineering and preprocessing
+- Loads trained model and returns predictions
+- Integrated via CLI (e.g., `scripts/run_inference.py`)
+
+### 8. Testing (`tests/`)
 - Covers:
   - Data loader
   - Validation
@@ -101,11 +111,12 @@ This is a **multiclass classification** task based on the popular Palmer Penguin
   - Feature engineering
   - Model training
   - Evaluation
+  - Inference
 - Uses `pytest --disable-warnings -q` for clean output
 
 ---
 
-## ⚙️ Configuration and Reproducibility
+## Configuration and Reproducibility
 
 All paths and parameters are configurable in `config.yaml`:
 
@@ -129,7 +140,7 @@ conda activate mlops-penguins-pamed
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 **Train the model:**
 
@@ -143,20 +154,33 @@ python -m src.main --mode train
 python -m src.main --mode eval
 ```
 
+**Run inference on new data:**
+
+```bash
+python -m scripts.run_inference
+```
+
+_Output saved to:_  
+```text
+data/processed/inference_output.csv
+```
+
 **Run all tests:**
 
 ```bash
 pytest --disable-warnings -q
 ```
 
+
 ---
 
-## 📈 Next Steps (Planned Enhancements)
+## Next Steps
 
-- Add MLflow or W&B for experiment tracking
-- Include batch inference CLI mode
-- Refactor into class-based `Pipeline()` structure
-- Automate testing with GitHub Actions
+- Integrate full MLflow model registry lifecycle (Staging → Production)
+- Enable REST-based real-time inference using FastAPI
+- Refactor pipeline steps into class-based architecture (e.g. `Pipeline` object)
+- Automate linting, testing, and training with GitHub Actions CI/CD
+- Add data versioning support using DVC
 
 ---
 
