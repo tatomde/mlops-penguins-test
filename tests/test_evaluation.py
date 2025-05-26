@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from src.data.data_loader import load_data
 from src.features.features import engineer_features
-from src.preprocessing.preprocessing import preprocess_data
+from src.preprocessing.preprocessing import build_preprocessing_pipeline
 from src.evaluation.evaluation import evaluate_model
 
 def test_evaluate_model_outputs(tmp_path):
@@ -16,7 +16,12 @@ def test_evaluate_model_outputs(tmp_path):
     df_fe = engineer_features(df)
     y = df["species"]
     df_fe["species"] = y
-    X_proc = preprocess_data(df_fe)
+
+    from src.preprocessing.preprocessing import load_pipeline
+    pipeline = load_pipeline()
+    X_proc_array = pipeline.transform(df_fe)
+    X_proc = pd.DataFrame(X_proc_array, columns=pipeline.get_feature_names_out(), index=df.index)
+
     drop_cols = [c for c in X_proc.columns if c.startswith("species_")]
     X_proc = X_proc.drop(columns=drop_cols)
 

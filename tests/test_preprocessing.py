@@ -1,25 +1,25 @@
 import pandas as pd
 import pytest
 
-from src.preprocessing.preprocessing import preprocess_data, PreprocessingError
+from src.preprocessing.preprocessing import build_preprocessing_pipeline, PreprocessingError
 from src.data.data_loader import load_data
 
 def test_preprocess_data_success():
     """
-    preprocess_data on the real dataset should:
-    - return a DataFrame
+    build_preprocessing_pipeline on the real dataset should:
+    - return a fitted transformer that can transform the input
     - preserve the number of rows
     - increase the number of columns (due to one-hot encoding)
-    - contain no missing values
+    - produce no missing values
     """
     df = load_data()
-    processed = preprocess_data(df)
+    pipeline = build_preprocessing_pipeline(df)
+    processed_array = pipeline.fit_transform(df)
+    processed = pd.DataFrame(processed_array, columns=pipeline.get_feature_names_out(), index=df.index)
+
     assert isinstance(processed, pd.DataFrame)
-    # rows should match
     assert processed.shape[0] == df.shape[0]
-    # columns should increase vs. original numeric+categorical
     assert processed.shape[1] > df.shape[1]
-    # no NaNs after imputation
     assert not processed.isnull().any().any()
 
 def test_preprocess_data_failure():
@@ -27,4 +27,5 @@ def test_preprocess_data_failure():
     Passing invalid input (e.g., None) should raise PreprocessingError.
     """
     with pytest.raises(PreprocessingError):
-        preprocess_data(None)
+        build_preprocessing_pipeline(None)
+

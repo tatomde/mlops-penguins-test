@@ -5,15 +5,11 @@ import joblib
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-import mlflow
-import mlflow.sklearn
-
 
 from src.data.data_loader import load_data
 from src.features.features import engineer_features
-from src.preprocessing.preprocessing import preprocess_data
+from src.preprocessing.preprocessing import build_preprocessing_pipeline, save_pipeline
 
-# Logger setup
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 ch = logging.StreamHandler()
@@ -25,44 +21,34 @@ def train_and_save_model(
     label_col: str = "species",
     output_path: str = "models/model.pkl"
 ) -> float:
-    """
-    Train a classifier and save the model to disk.
-    Returns the accuracy on the validation set.
-    """
     logger.info("Starting model training")
 
-    # 1. Feature engineering
+    # Feature engineering
     df = engineer_features(df)
-
-    # 2. Store label separately and include it in preprocessing input
     y = df[label_col]
-    df[label_col] = y  # add target column back so it's one-hot encoded consistently
+    X = df.drop(columns=[label_col])
 
-    # 3. Preprocess
-    X_preprocessed = preprocess_data(df)
-
-    # 4. Drop one-hot encoded target column after transformation
-    X = X_preprocessed.drop(columns=[c for c in X_preprocessed.columns if c.startswith("species_")])
+    # Split before preprocessing
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
 
-    # 5. Model
-    with mlflow.start_run():
-        model = RandomForestClassifier(random_state=42)
-        model.fit(X_train, y_train)
+    # Build and fit preprocessing pipeline on X_train only
+    pipeline = build_preprocessing_pipeline(X_train)
+    X_train_proc = pipeline.fit_transform(X_train)
+    X_val_proc = pipeline.transform(X_val)
 
-        y_pred = model.predict(X_val)
-        acc = accuracy_score(y_val, y_pred)
+    # Save fitted pipeline
+    save_pipeline(pipeline)
 
-        mlflow.log_param("model_type", "RandomForestClassifier")
-        mlflow.log_metric("accuracy", acc)
-        mlflow.sklearn.log_model(model, "model")
+    # Train model
+    model = RandomForestClassifier(random_state=42)
+    model.fit(X_train_proc, y_train)
 
-    # 6. Evaluate
-    y_pred = model.predict(X_val)
+    # Evaluate
+    y_pred = model.predict(X_val_proc)
     acc = accuracy_score(y_val, y_pred)
     logger.info(f"Accuracy: {acc:.4f}")
 
-    # 7. Save model
+    # Save model
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     joblib.dump(model, output_path)
     logger.info(f"Saved trained model to {output_path}")

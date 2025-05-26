@@ -1,73 +1,65 @@
-import logging
 import pandas as pd
+import joblib
+import logging
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 
-# Custom exception (optional)
-class PreprocessingError(Exception):
-    """Raised when preprocessing fails."""
-    pass
-
-# Configure logger
+# Logger setup
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 ch = logging.StreamHandler()
 ch.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
 logger.addHandler(ch)
 
-def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
+# Custom exception
+class PreprocessingError(Exception):
+    """Raised when preprocessing pipeline fails to build or run."""
+    pass
+
+def build_preprocessing_pipeline(df: pd.DataFrame) -> ColumnTransformer:
     """
-    - Impute missing numeric values with median.
-    - Scale numeric features.
-    - One-hot encode categorical features.
-    Returns a transformed DataFrame.
+    Build a preprocessing pipeline for the given DataFrame:
+    - Numeric: median imputation + standard scaling
+    - Categorical: most frequent imputation + one-hot encoding
+    Returns a fitted or ready-to-fit pipeline.
     """
     try:
-        logger.info("Starting preprocessing")
+        logger.info("Building preprocessing pipeline...")
 
-        # 1. Identify columns
         numeric_cols = df.select_dtypes(include="number").columns.tolist()
         categorical_cols = df.select_dtypes(include="object").columns.tolist()
 
-        # 2. Build transformers
         numeric_pipeline = Pipeline([
             ("imputer", SimpleImputer(strategy="median")),
-            ("scaler", StandardScaler()),
+            ("scaler", StandardScaler())
         ])
+
         categorical_pipeline = Pipeline([
             ("imputer", SimpleImputer(strategy="most_frequent")),
-            ("onehot", OneHotEncoder(sparse_output=False, handle_unknown="ignore")),
+            ("onehot", OneHotEncoder(handle_unknown="ignore", sparse_output=False))
         ])
 
         preprocessor = ColumnTransformer(transformers=[
             ("num", numeric_pipeline, numeric_cols),
-            ("cat", categorical_pipeline, categorical_cols),
+            ("cat", categorical_pipeline, categorical_cols)
         ])
 
-        # 3. Fit & transform
-        transformed_array = preprocessor.fit_transform(df)
-        feature_names = (
-            numeric_cols +
-            list(preprocessor.named_transformers_["cat"].named_steps["onehot"].get_feature_names_out(categorical_cols))
-        )
-        result_df = pd.DataFrame(transformed_array, columns=feature_names, index=df.index)
-
-        logger.info(f"Preprocessing complete: output shape {result_df.shape}")
-        return result_df
+        logger.info("Preprocessing pipeline built successfully.")
+        return preprocessor
 
     except Exception as e:
-        logger.error(f"Preprocessing failed: {e}")
+        logger.error(f"Failed to build preprocessing pipeline: {e}")
         raise PreprocessingError from e
 
-if __name__ == "__main__":
-    # quick smoke test
-    import os
-    from dotenv import load_dotenv
-    from src.data.data_loader import load_data
+def save_pipeline(pipeline: ColumnTransformer, path: str = "models/preprocessor.pkl"):
+    """Save the fitted preprocessing pipeline to disk."""
+    joblib.dump(pipeline, path)
+    logger.info(f"Saved preprocessing pipeline to {path}")
 
-    load_dotenv()
-    df = load_data()
-    processed = preprocess_data(df)
-    print(processed.head())
+def load_pipeline(path: str = "models/preprocessor.pkl") -> ColumnTransformer:
+    """Load a saved preprocessing pipeline from disk."""
+    pipeline = joblib.load(path)
+    logger.info(f"Loaded preprocessing pipeline from {path}")
+    return pipeline

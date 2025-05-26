@@ -318,3 +318,87 @@
 2025-05-26 18:43:19,816 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
 2025-05-26 18:43:19,818 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
 2025-05-26 18:43:19,825 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:25:54,619 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:25:54,635 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:25:54,635 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:25:54,651 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:26:04,308 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:26:04,316 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:26:04,317 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:26:04,319 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:27:12,243 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:27:12,250 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:27:12,250 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:27:12,254 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:33:07,437 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:33:07,454 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:33:07,455 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:33:07,461 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:33:07,463 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:33:07,467 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:33:07,468 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:33:07,479 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:33:07,488 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:33:07,492 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:33:07,493 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:33:07,494 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:33:07,506 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:33:07,510 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:33:07,512 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:33:07,514 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:33:07,524 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:33:07,528 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:33:07,528 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:33:07,530 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:33:07,548 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:33:07,553 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:33:07,554 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:33:07,558 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:33:07,946 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:33:07,948 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:33:07,949 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:33:07,950 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:33:07,957 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:33:07,961 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:33:07,961 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:33:07,963 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:33:08,163 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:33:08,165 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:33:08,165 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:33:08,166 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:34:37,308 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:34:37,311 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:34:37,313 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:34:37,315 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:34:37,316 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:34:37,318 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:34:37,318 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:34:37,320 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:34:37,323 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:34:37,324 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:34:37,324 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:34:37,325 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:34:37,327 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:34:37,329 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:34:37,329 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:34:37,331 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:34:37,334 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:34:37,338 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:34:37,338 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:34:37,339 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:34:37,347 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:34:37,349 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:34:37,350 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:34:37,350 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:34:38,023 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:34:38,025 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:34:38,025 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:34:38,026 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:34:38,035 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:34:38,038 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:34:38,038 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:34:38,039 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
+2025-05-26 19:34:38,282 - src.data.data_loader - INFO - Loading data from data/raw/penguins_cleaned.csv
+2025-05-26 19:34:38,285 - src.data.data_loader - INFO - Loaded data: 333 rows, 7 columns
+2025-05-26 19:34:38,285 - src.data.data_loader - INFO - Column types: {'species': dtype('O'), 'island': dtype('O'), 'bill_length_mm': dtype('float64'), 'bill_depth_mm': dtype('float64'), 'flipper_length_mm': dtype('int64'), 'body_mass_g': dtype('int64'), 'sex': dtype('O')}
+2025-05-26 19:34:38,287 - src.data.data_loader - INFO - Saved sample to data/processed/sample.csv
